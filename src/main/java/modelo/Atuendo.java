@@ -5,10 +5,6 @@ public class Atuendo {
 	Prenda parteInferior;
 	Prenda calzado;
 	Prenda accesorio;
-	
-	public boolean esDeCategoria(Prenda prenda, Categoria categoria) {
-		return prenda.categoria() == categoria;
-	}
 
 	public Prenda getParteSuperior() {
 		return parteSuperior;
@@ -56,5 +52,9 @@ public class Atuendo {
 			return;
 		}
 		throw new RuntimeException("Prenda no es de categoria Accesorio");
+	}
+	
+	private boolean esDeCategoria(Prenda prenda, Categoria categoria) {
+		return prenda.categoria() == categoria;
 	}
 }
