@@ -13,10 +13,10 @@ import modelo.Tipo;
 public class TestQueMePongo {	
 	Prenda remera = new Prenda(Tipo.REMERA, Material.ALGODON, new Color(0, 0, 128), null);
 	Prenda pantalon = new Prenda(Tipo.PANTALON, Material.ALGODON, new Color(0, 128, 128), null);
-	Prenda zapatos = new Prenda(Tipo.ZAPATOS, Material.ALGODON, new Color(0, 0, 64), null);
+	Prenda zapatos = new Prenda(Tipo.ZAPATOS, Material.CUERO, new Color(0, 0, 64), null);
 	Prenda gorra = new Prenda(Tipo.GORRA, Material.POLIESTER, new Color(128, 0, 128), new Color(0, 0, 64));
 	Prenda campera = new Prenda(Tipo.CAMPERA, Material.CUERO, new Color(64, 64, 64), new Color(128, 128, 128));
-	Prenda ojotas = new Prenda(Tipo.OJOTAS, Material.ALGODON, new Color(128, 128, 128), null);
+	Prenda ojotas = new Prenda(Tipo.OJOTAS, Material.GOMA, new Color(128, 128, 128), null);
 	
 	Atuendo atuendo1 = new Atuendo();
 	Atuendo atuendo2 = new Atuendo();
@@ -44,6 +44,11 @@ public class TestQueMePongo {
 	
 	@Test(expected = RuntimeException.class)
 	public void coloresIgualesDePrenda(){
+		Prenda unaPrenda = new Prenda(Tipo.OJOTAS, Material.GOMA, new Color(128, 128, 128), new Color(128, 128, 128));	
+	}
+	
+	@Test(expected = RuntimeException.class)
+	public void prendaConTipoYMaterialInconsistente(){
 		Prenda unaPrenda = new Prenda(Tipo.OJOTAS, Material.ALGODON, new Color(128, 128, 128), new Color(128, 128, 128));	
 	}
 	
