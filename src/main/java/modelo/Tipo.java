@@ -1,34 +1,35 @@
 package modelo;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.EnumSet;
 
 public enum Tipo {
-	REMERA(Categoria.SUPERIOR, new ListaMateriales().add(Material.ALGODON).add(Material.POLIESTER)),
-	CAMISA(Categoria.SUPERIOR, new ListaMateriales().add(Material.ALGODON).add(Material.POLIESTER)),
-	MUSCULOSA(Categoria.SUPERIOR, new ListaMateriales().add(Material.ALGODON).add(Material.POLIESTER)),
-	CAMPERA(Categoria.SUPERIOR, new ListaMateriales().add(Material.ALGODON).add(Material.POLIESTER).add(Material.CUERO)),
-	BUZO(Categoria.SUPERIOR, new ListaMateriales().add(Material.ALGODON).add(Material.POLIESTER).add(Material.LANA)),
+	REMERA(Categoria.SUPERIOR, EnumSet.of(Material.ALGODON, Material.POLIESTER)),
+	CAMISA(Categoria.SUPERIOR, EnumSet.of(Material.ALGODON, Material.POLIESTER)),
+	MUSCULOSA(Categoria.SUPERIOR, EnumSet.of(Material.ALGODON, Material.POLIESTER)),
+	CAMPERA(Categoria.SUPERIOR, EnumSet.of(Material.ALGODON, Material.POLIESTER, Material.CUERO)),
+	BUZO(Categoria.SUPERIOR, EnumSet.of(Material.ALGODON, Material.POLIESTER, Material.LANA)),
 	
-	PANTALON(Categoria.INFERIOR, new ListaMateriales().add(Material.ALGODON)),
-	BERMUDA(Categoria.INFERIOR, new ListaMateriales().add(Material.ALGODON)),
-	POLLERA(Categoria.INFERIOR, new ListaMateriales().add(Material.ALGODON).add(Material.POLIESTER)),
-	CALZA(Categoria.INFERIOR, new ListaMateriales().add(Material.ALGODON).add(Material.POLIESTER)),
+	PANTALON(Categoria.INFERIOR, EnumSet.of(Material.ALGODON)),
+	BERMUDA(Categoria.INFERIOR, EnumSet.of(Material.ALGODON)),
+	POLLERA(Categoria.INFERIOR, EnumSet.of(Material.ALGODON, Material.POLIESTER)),
+	CALZA(Categoria.INFERIOR, EnumSet.of(Material.ALGODON, Material.POLIESTER)),
 	
-	ZAPATOS(Categoria.CALZADO, new ListaMateriales().add(Material.CUERO)),
-	ZAPATILLAS(Categoria.CALZADO, new ListaMateriales().add(Material.CUERO)),
-	BOTAS(Categoria.CALZADO, new ListaMateriales().add(Material.CUERO)),
-	OJOTAS(Categoria.CALZADO, new ListaMateriales().add(Material.GOMA).add(Material.POLIESTER)),
+	ZAPATOS(Categoria.CALZADO, EnumSet.of(Material.CUERO)),
+	ZAPATILLAS(Categoria.CALZADO, EnumSet.of(Material.CUERO)),
+	BOTAS(Categoria.CALZADO, EnumSet.of(Material.CUERO)),
+	OJOTAS(Categoria.CALZADO, EnumSet.of(Material.GOMA, Material.POLIESTER)),
 	
-	GORRA(Categoria.ACCESORIO, new ListaMateriales().add(Material.POLIESTER)),
-	BUFANDA(Categoria.ACCESORIO, new ListaMateriales().add(Material.LANA)),
-	ANTEOJOS(Categoria.ACCESORIO, new ListaMateriales().add(Material.PLASTICO)),
-	RELOJ(Categoria.ACCESORIO, new ListaMateriales().add(Material.PLATA).add(Material.ORO)),
-	COLGANTE(Categoria.ACCESORIO, new ListaMateriales().add(Material.PLATA).add(Material.ORO));
+	GORRA(Categoria.ACCESORIO, EnumSet.of(Material.POLIESTER)),
+	BUFANDA(Categoria.ACCESORIO, EnumSet.of(Material.LANA)),
+	ANTEOJOS(Categoria.ACCESORIO, EnumSet.of(Material.PLASTICO)),
+	RELOJ(Categoria.ACCESORIO, EnumSet.of(Material.PLATA, Material.ORO)),
+	COLGANTE(Categoria.ACCESORIO, EnumSet.of(Material.PLATA, Material.ORO));
 	
 	private final Categoria categoria;
-	private final ListaMateriales materialesPosibles;
+	private final Collection<Material> materialesPosibles;
 	
-	private Tipo(Categoria cat, ListaMateriales materiales) {
+	private Tipo(Categoria cat, Collection<Material> materiales) {
 		this.categoria = cat;
 		this.materialesPosibles = materiales;
 	}
@@ -37,8 +38,8 @@ public enum Tipo {
 		return this.categoria;
 	}
 	
-	public List<Material> getMaterialesPosibles() { //Devuelvo la List porque es más fácil trabajar con ella
-		return this.materialesPosibles.getMateriales();
+	public Collection<Material> getMaterialesPosibles() { //Devuelvo la List porque es más fácil trabajar con ella
+		return this.materialesPosibles;
 	}
 	
 	public boolean puedeSerDe(Material mat) {

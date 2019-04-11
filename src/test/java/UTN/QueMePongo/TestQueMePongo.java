@@ -49,7 +49,7 @@ public class TestQueMePongo {
 	
 	@Test(expected = RuntimeException.class)
 	public void prendaConTipoYMaterialInconsistente(){
-		Prenda unaPrenda = new Prenda(Tipo.OJOTAS, Material.ALGODON, new Color(128, 128, 128), new Color(128, 128, 128));	
+		Prenda unaPrenda = new Prenda(Tipo.OJOTAS, Material.ALGODON, new Color(128, 128, 128), new Color(64, 128, 128));	
 	}
 	
 	@Test

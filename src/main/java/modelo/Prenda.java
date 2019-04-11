@@ -31,10 +31,6 @@ public class Prenda {
 		return colorSecundario;
 	}
 
-	public void setColorSecundario(Color colorSecundario) {
-		this.colorSecundario = colorSecundario;
-	}
-
 	public Tipo getTipo() {
 		return tipo;
 	}

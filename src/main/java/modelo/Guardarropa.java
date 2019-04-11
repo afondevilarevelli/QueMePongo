@@ -25,7 +25,7 @@ public class Guardarropa {
 		this.prendas.remove(prenda);
 	}
 	
-	public List<Atuendo> obtenerSugerencia() {
+	public List<Atuendo> obtenerSugerencias() {
 		//aplicar algoritmo de generación de atuendos y devolver las distintas combinaciones de atuendos 
 		//para las distintas prendas de un guardarropas
 		return null;
